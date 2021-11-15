@@ -22,4 +22,15 @@ class CategoryServiceImpl implements CategoryService {
     Category save(Category category) {
         CategoryRepository.save(category)
     }
+
+    @Override
+    Category update(Category category, int id) {
+        def record = CategoryRepository.findById(id)
+        record.with {
+            name = category.name
+        }
+        CategoryRepository.save(record)
+        record
+    }
+
 }

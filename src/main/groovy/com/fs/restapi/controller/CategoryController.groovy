@@ -24,4 +24,10 @@ class CategoryController {
     Category save(@RequestBody Category category) {
         categoryService.save(category)
     }
+
+    @PutMapping('{id}')
+    Category update(@RequestBody Category category, @PathVariable('id') int id) {
+        categoryService.update(category, id)
+    }
+
 }
