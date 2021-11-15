@@ -1,10 +1,10 @@
-package com.fs.Tugas3
+package com.fs.restapi
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class Tugas3ApplicationTests {
+class RestapiApplicationTests {
 
 	@Test
 	void contextLoads() {

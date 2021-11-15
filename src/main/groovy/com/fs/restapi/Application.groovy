@@ -1,4 +1,4 @@
-package com.fs.Tugas3
+package com.fs.restapi
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
