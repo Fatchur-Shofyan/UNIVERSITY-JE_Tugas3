@@ -4,4 +4,5 @@ import com.fs.restapi.entity.Category
 interface CategoryService { 
     List<Category> findAll()
     Category findById(int id)
+    Category save(Category category)
 }

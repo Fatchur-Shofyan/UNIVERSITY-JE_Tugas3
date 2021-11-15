@@ -19,4 +19,9 @@ class CategoryController {
     Category findById(@PathVariable('id') int id) {
         categoryService.findById(id)
     }
+
+    @PostMapping()
+    Category save(@RequestBody Category category) {
+        categoryService.save(category)
+    }
 }

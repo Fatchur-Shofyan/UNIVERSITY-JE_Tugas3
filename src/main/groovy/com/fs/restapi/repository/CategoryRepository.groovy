@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository
 interface CategoryRepository extends JpaRepository<Category, Integer> {
     List<Category> findAll()
     Category findById(Integer id)
+    Category save(Category category)
 }
