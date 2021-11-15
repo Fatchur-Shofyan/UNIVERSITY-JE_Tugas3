@@ -1,4 +1,4 @@
-package com.fs.tugas3
+package com.fs.Tugas3
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
