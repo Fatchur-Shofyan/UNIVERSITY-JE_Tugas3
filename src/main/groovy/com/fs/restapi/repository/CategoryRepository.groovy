@@ -8,4 +8,5 @@ interface CategoryRepository extends JpaRepository<Category, Integer> {
     List<Category> findAll()
     Category findById(Integer id)
     Category save(Category category)
+    void delete(Category category)
 }

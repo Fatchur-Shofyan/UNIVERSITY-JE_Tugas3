@@ -30,4 +30,8 @@ class CategoryController {
         categoryService.update(category, id)
     }
 
+    @DeleteMapping('{id}')
+    Category delete(@PathVariable('id') int id) {
+        categoryService.delete(id)
+    }
 }

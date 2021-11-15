@@ -33,4 +33,10 @@ class CategoryServiceImpl implements CategoryService {
         record
     }
 
+    @Override
+    Category delete(int id) {
+        def record = CategoryRepository.findById(id)
+        CategoryRepository.delete(record)
+        record
+    }
 }
