@@ -1,11 +1,17 @@
 package com.fs.restapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.List;
 
 public class BookDTO {
     private Long id;
     private String name;
     private String isbn;
+    private Long category_id;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private List<CategoryDTO> category;
 
     public Long getId() {
         return id;
@@ -29,5 +35,21 @@ public class BookDTO {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public Long getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(Long category_id) {
+        this.category_id = category_id;
+    }
+
+    public List<CategoryDTO> getCategory() {
+        return category;
+    }
+
+    public void setCategory(List<CategoryDTO> category) {
+        this.category = category;
     }
 }

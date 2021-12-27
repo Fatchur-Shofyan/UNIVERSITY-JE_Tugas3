@@ -13,7 +13,7 @@ class CategoryController {
     private final CategoryService categoryService
     @GetMapping('')
     List<Category> findAll(
-        @RequestParam(value="includeBooks",required = false) boolean include
+        @RequestParam(value="include",required = false) String include
     ) {
         categoryService.findAll(include)
     }
@@ -21,7 +21,7 @@ class CategoryController {
     @GetMapping('{id}')
     CategoryDTO findById(
         @PathVariable('id') int id,
-        @RequestParam(value="includeBooks",required = false) boolean include
+        @RequestParam(value="include",required = false) String include
     ) {
         categoryService.findById(id,include)
     }

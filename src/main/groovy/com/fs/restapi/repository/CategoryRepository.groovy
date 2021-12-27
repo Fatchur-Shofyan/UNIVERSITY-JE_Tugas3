@@ -14,8 +14,12 @@ interface CategoryRepository extends JpaRepository<Category, Integer> {
     Category save(Category category)
     void delete(Category category)
 
-    String rawQuery = "select * from categories c";
-
-    @Query(nativeQuery = true, value = rawQuery)
+    String rawQuery1 = "select * from categories c";
+    @Query(nativeQuery = true, value = rawQuery1)
     List<Category> findAllCategories();
+
+
+    String rawQuery2 = "SELECT * FROM categories c WHERE id = ?1";
+    @Query(nativeQuery = true, value = rawQuery2)
+    List<Category> findCategory(Integer id);
 }

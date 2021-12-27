@@ -1,5 +1,6 @@
 package com.fs.restapi.controller
 
+import com.fs.restapi.dto.BookDTO
 import com.fs.restapi.entity.Book
 import com.fs.restapi.service.BookService
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,14 +12,16 @@ class BookController {
     @Autowired
     private final BookService bookService
     @GetMapping('')
-    List<Book> findAll() {
-        bookService.findAll()
+    List<Book> findAll(
+        @RequestParam(value="include",required = false) String include
+    ) {
+        bookService.findAll(include)
     }
 
     @GetMapping('{id}')
-    Book findById(
+    BookDTO findById(
         @PathVariable('id') int id,
-        @RequestParam(value="include",required = false) boolean include
+        @RequestParam(value="include",required = false) String include
     ) {
         bookService.findById(id,include)
     }

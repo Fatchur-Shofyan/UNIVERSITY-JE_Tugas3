@@ -20,12 +20,10 @@ class CategoryServiceImpl implements CategoryService {
     private CategoryBookRepository categoryBookRepository;
 
     @Override
-    List<Category> findAll(boolean includeBooks) {
+    List<Category> findAll(String include) {
         List<Category> categories;
         categories = CategoryRepository.findAll();
         List<Category> categoriesList = new ArrayList<>();
-
-//        CategoryRepository.findAll().forEach(category -> categoriesList.add(category));
 
         if (categories != null) {
             for (Category category : categories) {
@@ -34,7 +32,7 @@ class CategoryServiceImpl implements CategoryService {
                 categoryDTO.setName(category.getName());
 
                 List<CategoryBook> categoryBooks = null;
-                if (includeBooks) {
+                if (include == "books") {
                     categoryBooks = categoryBookRepository.findAllByBookId(category.getId());
                 }
                 List<BookDTO> bookDTOList = new ArrayList<>();
@@ -44,6 +42,7 @@ class CategoryServiceImpl implements CategoryService {
                         bookDTO.setId(categoryBook.getId());
                         bookDTO.setName(categoryBook.getName());
                         bookDTO.setIsbn(categoryBook.getIsbn());
+                        bookDTO.setCategory_id(categoryBook.getCategory_id());
 
                         bookDTOList.add(bookDTO);
                     }
@@ -58,23 +57,21 @@ class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    CategoryDTO findById(int id, boolean includeBooks) {
+    CategoryDTO findById(int id, String include) {
         Category category;
         List<CategoryBook> categoryBooks = null;
 
         category = CategoryRepository.findById(id);
 
-        if (includeBooks) {
+        if (include == "books") {
             categoryBooks = categoryBookRepository.findAllByBookId(id);
         }
 
         CategoryDTO categoryDTO = new CategoryDTO();
 
-        // set book details
         categoryDTO.setId(category.getId());
         categoryDTO.setName(category.getName());
 
-        // get author details
         List<BookDTO> bookDTOList = new ArrayList<>();
         if (categoryBooks != null) {
             for (Book categoryBook : categoryBooks) {
@@ -82,6 +79,7 @@ class CategoryServiceImpl implements CategoryService {
                 bookDTO.setId(categoryBook.getId());
                 bookDTO.setName(categoryBook.getName());
                 bookDTO.setIsbn(categoryBook.getIsbn());
+                bookDTO.setCategory_id(categoryBook.getCategory_id());
 
                 bookDTOList.add(bookDTO);
             }
