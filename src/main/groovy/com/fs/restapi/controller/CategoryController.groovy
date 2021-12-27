@@ -2,8 +2,8 @@ package com.fs.restapi.controller
 
 import com.fs.restapi.entity.Category
 import com.fs.restapi.service.CategoryService
-import org.springframework.web.bind.annotation.*
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping('/categories')
