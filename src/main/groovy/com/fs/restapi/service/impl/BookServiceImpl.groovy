@@ -96,6 +96,8 @@ class BookServiceImpl implements BookService {
         def record = BookRepository.findById(id)
         record.with {
             name = book.name
+            isbn = book.isbn
+            category_id = book.category_id
         }
         BookRepository.save(record)
         record
