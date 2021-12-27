@@ -4,8 +4,7 @@ import com.fs.restapi.dto.CategoryDTO
 import com.fs.restapi.entity.Category
 
 interface CategoryService { 
-    List<Category> findAll()
-
+    List<Category> findAll(boolean includeBooks)
     CategoryDTO findById(int id, boolean includeBooks)
     Category save(Category category)
     Category update(Category category, int id)

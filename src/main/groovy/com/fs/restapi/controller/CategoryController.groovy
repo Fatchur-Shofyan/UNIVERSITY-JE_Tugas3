@@ -12,10 +12,10 @@ class CategoryController {
     @Autowired
     private final CategoryService categoryService
     @GetMapping('')
-    CategoryDTO findAll(
+    List<Category> findAll(
         @RequestParam(value="includeBooks",required = false) boolean include
     ) {
-        categoryService.findAll()
+        categoryService.findAll(include)
     }
 
     @GetMapping('{id}')

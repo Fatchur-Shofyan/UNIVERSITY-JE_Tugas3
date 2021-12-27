@@ -19,8 +19,42 @@ class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryBookRepository categoryBookRepository;
 
-    @Override List<Category> findAll() {
-        CategoryRepository.findAll()
+    @Override
+    List<Category> findAll(boolean includeBooks) {
+        List<Category> categories;
+        categories = CategoryRepository.findAll();
+        List<Category> categoriesList = new ArrayList<>();
+
+//        CategoryRepository.findAll().forEach(category -> categoriesList.add(category));
+
+        if (categories != null) {
+            for (Category category : categories) {
+                CategoryDTO categoryDTO = new CategoryDTO();
+                categoryDTO.setId(category.getId());
+                categoryDTO.setName(category.getName());
+
+                List<CategoryBook> categoryBooks = null;
+                if (includeBooks) {
+                    categoryBooks = categoryBookRepository.findAllByBookId(category.getId());
+                }
+                List<BookDTO> bookDTOList = new ArrayList<>();
+                if (categoryBooks != null) {
+                    for (Book categoryBook : categoryBooks) {
+                        BookDTO bookDTO = new BookDTO();
+                        bookDTO.setId(categoryBook.getId());
+                        bookDTO.setName(categoryBook.getName());
+                        bookDTO.setIsbn(categoryBook.getIsbn());
+
+                        bookDTOList.add(bookDTO);
+                    }
+
+                    categoryDTO.setBooks(bookDTOList);
+                }
+
+                categoriesList.add(categoryDTO);
+            }
+        }
+        return categoriesList;
     }
 
     @Override

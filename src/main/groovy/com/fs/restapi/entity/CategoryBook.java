@@ -8,10 +8,6 @@ public class CategoryBook {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-//    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
-//    private Book book;
-
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
     private Category category;
