@@ -1,4 +1,6 @@
 package com.fs.restapi.repository
+
+import com.fs.restapi.dto.CategoryDTO
 import com.fs.restapi.entity.Category
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository

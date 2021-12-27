@@ -16,8 +16,11 @@ class CategoryController {
     }
 
     @GetMapping('{id}')
-    Category findById(@PathVariable('id') int id) {
-        categoryService.findById(id)
+    Category findById(
+        @PathVariable('id') int id,
+        @RequestParam(value="include",required = false) boolean include
+    ) {
+        categoryService.findById(id,include)
     }
 
     @PostMapping()

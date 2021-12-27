@@ -1,4 +1,6 @@
 package com.fs.restapi.service.impl
+
+import com.fs.restapi.dto.CategoryDTO
 import com.fs.restapi.entity.Category
 import com.fs.restapi.repository.CategoryRepository
 import com.fs.restapi.service.CategoryService
@@ -14,8 +16,13 @@ class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    Category findById(int id) {
-        CategoryRepository.findById(id)
+    Category findById(int id, boolean include) {
+        Category category;
+        if(include) {
+
+        } else {
+            CategoryRepository.findById(id)
+        }
     }
 
     @Override
