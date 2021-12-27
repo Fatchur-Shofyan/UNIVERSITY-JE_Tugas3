@@ -35,3 +35,10 @@ out/
 
 ### VS Code ###
 .vscode/
+src/main/groovy/com/fs/restapi/controller/CategoryController.groovy
+src/main/groovy/com/fs/restapi/dto/BookDTO.java
+src/main/groovy/com/fs/restapi/dto/CategoryDTO.java
+src/main/groovy/com/fs/restapi/entity/BookCategory.java
+src/main/groovy/com/fs/restapi/repository/BookCategoryRepository.java
+src/main/groovy/com/fs/restapi/service/CategoryService.groovy
+src/main/groovy/com/fs/restapi/service/impl/CategoryServiceImpl.groovy
