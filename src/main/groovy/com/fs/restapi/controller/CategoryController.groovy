@@ -1,5 +1,6 @@
 package com.fs.restapi.controller
 
+import com.fs.restapi.dto.CategoryDTO
 import com.fs.restapi.entity.Category
 import com.fs.restapi.service.CategoryService
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,14 +12,16 @@ class CategoryController {
     @Autowired
     private final CategoryService categoryService
     @GetMapping('')
-    List<Category> findAll() {
+    CategoryDTO findAll(
+        @RequestParam(value="includeBooks",required = false) boolean include
+    ) {
         categoryService.findAll()
     }
 
     @GetMapping('{id}')
-    Category findById(
+    CategoryDTO findById(
         @PathVariable('id') int id,
-        @RequestParam(value="include",required = false) boolean include
+        @RequestParam(value="includeBooks",required = false) boolean include
     ) {
         categoryService.findById(id,include)
     }

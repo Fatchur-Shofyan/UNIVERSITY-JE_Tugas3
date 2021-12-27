@@ -1,11 +1,14 @@
 package com.fs.restapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.List;
 
 public class CategoryDTO {
     private Long id;
     private String name;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<BookDTO> books;
 
     public Long getId() {
